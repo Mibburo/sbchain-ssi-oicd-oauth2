@@ -1,12 +1,10 @@
 {
-  "realm": "ssirealm",
-  "auth-server-url": "http://localhost:9090/auth/",
+  "realm": "SSI",
+  "auth-server-url": "https://dss1.aegean.gr/auth",
   "ssl-required": "external",
-  "resource": "ssi-client",
-  "verify-token-audience": true,
+  "resource": "test-ssi",
   "credentials": {
-    "secret": "secret"
+    "secret": "d49edc4f-aa15-4b9c-95ac-43ca70d01da1"
   },
-  "confidential-port": 0,
-  "policy-enforcer": {}
+  "confidential-port": 0
 }
