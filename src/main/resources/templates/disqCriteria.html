@@ -100,6 +100,75 @@
                     <div th:text="#{luxury.description}" class="text disqCrit__text text--right"> Airplane, yacht owner </div>
                 </div>
             </div>
+            <h4 th:text="#{employment.info.title}" class="formTitle">employment Info</h4>
+            <hr class="divider--light">
+        <div class="row__container"> 
+            <div class="row doublecol__row">
+                <div class="inputContainer inputContainer--big">
+                    <label th:text="#{employment.status}" class="label input__label"> Employment Status </label>
+                    <input type="text" class="input employment__input input--select" th:value="${ssiInfo != null}? ${ssiInfo[employmentStatus]}">
+					
+                </div>
+                <div class="inputContainer inputContainer--big">
+                    <label th:text="#{unemployed}"></label>
+                    <div class="inputContainerCheckbox">
+                        <input type="text" id="unemployedText" th:value="${ssiInfo != null}? ${!ssiInfo[employed]}" class="mainBox" hidden="true" readonly>
+                        <div class="checkboxContainer checkboxContainer--false">
+                            <input type="checkbox" id="falseBox" class="checkBox unemployed__checkBox falseBox" th:value="${false}" disabled >
+                            <label th:text="#{no}" class="label checkBox__label label--right"> No </label>
+                        </div>  
+                        <div class="checkboxContainer checkboxContainer--true">
+                            <input type="checkbox" id="trueBox" class="checkBox unemployed__checkBox trueBox" th:value="${false}" disabled>
+                            <label th:text="#{yes}" class="label checkBox__label label--right"> Yes </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row doublecol__row">
+                <div class="inputContainer inputContainer--big">
+                    <label th:text="#{oaed.id}" class="label input__label"> oaed id </label>
+                    <input type="text" class="input employmentInfo__input input--big" th:value="${ssiInfo != null}? ${ssiInfo[oaedId]}" readonly />
+                </div>
+                <div class="inputContainer inputContainer--big">
+                    <label th:text="#{oaed.date}" class="label input__label"> oaed date </label>
+                    <input type="text" class="input employmentInfo__input input--big" th:value="${ssiInfo != null}? ${ssiInfo[oaedDate]}" readonly/>
+                </div>
+            </div>
+        </div>
+        <div class="formTitleContainer">
+            <h2 th:text="#{fead.title}" class="formTitle">Disqualifying Criteria</h2>
+            <div class="infoButton" th:text="i" id="infoButton">i</div>
+        </div>
+        <hr class="divider--light">
+        <div class="infoTextBox" id="infoTextBox" style="display:none;">
+            <div class="inftoTextContainer" th:text="#{fead.info}">
+                
+            </div>
+        </div>
+        <div class="row__container"> 
+            <div th:text="#{fead.description.head}"></div>
+            <div class="row triplecol__row row--smallcol">
+                <input type="text" id="pFeadBox" th:value="${ssiInfo != null}? ${ssiInfo[participateFead]}" class="mainBox" hidden="true" readonly>
+                <div class="checkboxContainer checkboxContainer--false">
+                    <input type="checkbox" id="falseBox" class="checkBox disqCrit__checkBox falseBox" th:value="${false}" disabled>
+                    <label th:text="#{no}" class="label checkBox__label label--right"> No </label>
+                </div>  
+                <div class="checkboxContainer checkboxContainer--true">
+                    <input type="checkbox" id="trueBox" class="checkBox disqCrit__checkBox trueBox" th:value="${false}" disabled>
+                    <label th:text="#{yes}" class="label checkBox__label label--right"> Yes </label>
+                </div>
+                <div th:text="#{fead.description}" class="text feadCrit__text text--right"> Fead  </div>
+            </div>
+        </div>
+        <div class="row__container"> 
+            <div class="row full__row"> 
+                <div class="inputContainer inputContainer--full">
+                    <label th:text="#{fead.provider}" class="label input__label"> FEAD provider </label>
+                    <input type="text" class="input fead__input input--select" th:value="${ssiInfo != null}? ${ssiInfo[selectProvider]}" readonly>
+                    
+                </div>
+            </div>
+        </div>
             <div class="row button__row">
 <!--                <div class="fetchButton">
                     <a th:href="@{'/multi/disqualifyingCrit/results?uuid='+${uuid}}" th:text="#{fetch.info}" class="fetchLink">Fetch Info</a>

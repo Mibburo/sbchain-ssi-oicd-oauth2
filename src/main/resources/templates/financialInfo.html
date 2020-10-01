@@ -174,7 +174,130 @@
                     </div>
                 </div>
             </div>
-            
+            <h4 th:text="#{asset.info.title}" class="formTitle">Financial Info</h4>
+                <hr class="divider--light">
+            <div class="row__container"> 
+                <div class="row doublecol__row">
+                    <div class="inputContainer inputContainer--big">
+                        <label th:text="#{deposit.interest}" class="label input__label"> deposit Interest </label>
+                        <div class="inputContainerInfo">
+                            <input type="text" class="input personalInfo__input input--big" th:value="${ssiInfo != null}? ${ssiInfo[depositInterestA]}" readonly/>
+                            <div class="infoButton__wrapper">
+                                <div class="infoButton input__info" th:text="i" >i</div>
+                            </div>
+                        </div>
+                        <div class="infoTextBox" style="display:none;">
+                            <div class="inftoTextContainer" th:text="#{deposit.interest.info.text1}">
+                            </div>
+                            <hr class="divider--light">
+                                <div class="inftoTextContainer" th:text="#{deposit.interest.info.text2}"></div>
+                        </div>
+                    </div>
+                    <div class="inputContainer inputContainer--big">
+                        <label th:text="#{deposits}" class="label input__label"> deposits </label>
+                        <div class="inputContainerInfo">
+                            <input type="text" class="input personalInfo__input input--big" th:value="${ssiInfo != null}? ${ssiInfo[depositsA]}" readonly/>
+                            <div class="infoButton__wrapper">
+                                <div class="infoButton input__info" th:text="i" >i</div>
+                            </div>
+                        </div>
+                        <div class="infoTextBox" style="display:none;">
+                            <div class="inftoTextContainer" th:text="#{deposits.info.text}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row doublecol__row">
+                    <div class="inputContainer inputContainer--big">
+                        <label th:text="#{domestic.real.estate}" class="label input__label"> domestic Real Estate </label>
+                        <div class="inputContainerInfo">
+                            <input type="text" class="input personalInfo__input input--big" th:value="${ssiInfo != null}? ${ssiInfo[domesticRealEstateA]}" readonly/>
+                            <div class="infoButton__wrapper">
+                                <div class="infoButton input__info" th:text="i" >i</div>
+                            </div>
+                        </div>
+                        <div class="infoTextBox" style="display:none;">
+                            <div class="inftoTextContainer" th:text="#{real.estate.info.text}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inputContainer inputContainer--big">
+                        <label th:text="#{foreign.real.estate}" class="label input__label"> foreign Real Estate </label>
+                        <div class="inputContainerInfo">
+                            <input type="text" class="input personalInfo__input input--big" th:value="${ssiInfo != null}? ${ssiInfo[foreignRealEstateA]}" readonly/>
+                            <div class="infoButton__wrapper">
+                                <div class="infoButton input__info" th:text="i" >i</div>
+                            </div>
+                        </div>
+                        <div class="infoTextBox" style="display:none;">
+                            <div class="inftoTextContainer" th:text="#{foreign.real.estate.info.text}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row doublecol__row">
+                    <div class="inputContainer inputContainer--big">
+                        <label th:text="#{vehicle.value}" class="label input__label"> vehicle Value </label>
+                        <div class="inputContainerInfo">
+                            <input type="text" class="input personalInfo__input input--big" th:value="${ssiInfo != null}? ${ssiInfo[vehicleValueA]}" readonly/>
+                            <div class="infoButton__wrapper">
+                                <div class="infoButton input__info" th:text="i" >i</div>
+                            </div>
+                        </div>
+                        <div class="infoTextBox" style="display:none;">
+                            <div class="inftoTextContainer" th:text="#{vehicle.value.info.text1}">
+                            </div>
+                            <hr class="divider--light">
+                                <div class="inftoTextContainer" th:text="#{vehicle.value.info.text2}"></div>
+                        </div>
+                    </div>
+                    <div class="inputContainer inputContainer--big">
+                        <label th:text="#{investments}" class="label input__label"> investments </label>
+                        <div class="inputContainerInfo">
+                            <input type="text" class="input personalInfo__input input--big" th:value="${ssiInfo != null}? ${ssiInfo[investmentsA]}" readonly/>
+                            <div class="infoButton__wrapper">
+                                <div class="infoButton input__info" th:text="i" >i</div>
+                            </div>
+                        </div>
+                        <div class="infoTextBox" style="display:none;">
+                            <div class="inftoTextContainer" th:text="#{investments.info.text1}">
+                            </div>
+                            <hr class="divider--light">
+                                <div class="inftoTextContainer" th:text="#{investments.info.text2}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="formTitleContainer">
+                <h2 th:text="#{household.info.title}" class="formTitle">Disqualifying Criteria</h2>
+                <div class="infoButton" th:text="i" id="infoButton">i</div>
+            </div>
+            <hr class="divider--light">
+            <div class="infoTextBox" id="infoTextBox" style="display:none;">
+                <h2 th:text="#{household.info.infobox.title}" class="infoTextBoxTitle"></h2>
+                
+            </div>
+            <div th:if="${null != houseHoldInfo}">
+                <table class="table householdTable" >
+                    <thead>
+                        <tr>
+                            <th class="tableHeader householdHeader householdHeader--number" th:text="'#'"></th>
+                            <th class="tableHeader householdHeader householdHeader--member" th:text="#{household.member}"></th>
+                            <th class="tableHeader householdHeader householdHeader--relation" th:text="#{household.member.relation}"></th>
+                        </tr>
+                    </thead>
+                    <tbody th:if="${houseHoldInfo}" >
+                        <tr th:each="member, counter : ${houseHoldInfo}">
+                            <td class="column column__1" th:text="${counter.count}"></td>
+                            <span th:each="item, iter : ${member}">
+                            <td class="column column__3" th:text="${item.value}"></td>
+                        </span>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+
             <div class="row button__row">
 <!--                <div class="fetchButton">
                     <a th:href="@{'/multi/financialInfo/results?uuid='+${uuid}}" th:text="#{fetch.info}" class="fetchLink">Fetch Info</a>

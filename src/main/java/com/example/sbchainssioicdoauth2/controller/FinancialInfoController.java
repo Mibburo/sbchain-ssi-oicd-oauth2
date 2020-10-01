@@ -63,19 +63,19 @@ public class FinancialInfoController {
 //            log.error(e.getMessage());
 //        }
 //        log.info("GOT the uuid" + uuid);
-        return new ModelAndView("redirect:/multi/assetInfo/view?uuid=" + uuid);
+        return new ModelAndView("redirect:/multi/electricityBill/view?uuid=" + uuid);
     }
 
     @GetMapping("/nextCompleted")
     protected ModelAndView nextComplete(RedirectAttributes attr, @RequestParam(value = "uuid", required = true) String uuid,
             ModelMap model, HttpServletRequest request, HttpSession session) {
-        return new ModelAndView("redirect:/multi/assetInfo/view?uuid=" + uuid);
+        return new ModelAndView("redirect:/multi/electricityBill/view?uuid=" + uuid);
     }
 
     @GetMapping("/back")
     protected ModelAndView back(RedirectAttributes attr, @RequestParam(value = "uuid", required = true) String uuid,
             ModelMap model, HttpServletRequest request, HttpSession session) {
-        return new ModelAndView("redirect:/multi/fead/view?uuid=" + uuid);
+        return new ModelAndView("redirect:/multi/disqualifyingCrit/view?uuid=" + uuid);
     }
 
 }

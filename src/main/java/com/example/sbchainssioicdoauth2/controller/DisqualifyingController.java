@@ -63,14 +63,14 @@ public class DisqualifyingController {
 //        return new ModelAndView("redirect:/multi/residenceInfo/view");
 //        log.info("GOT the uuid" + uuid);
 //        return new ModelAndView("redirect:/multi/financialInfo/view?uuid=" + uuid); //employment
-        return new ModelAndView("redirect:/multi/employment/view?uuid=" + uuid); //employment
+        return new ModelAndView("redirect:/multi/financialInfo/view?uuid=" + uuid); //employment
 
     }
 
     @GetMapping("/nextCompleted")
     protected ModelAndView nextComplete(RedirectAttributes attr, @RequestParam(value = "uuid", required = true) String uuid,
             ModelMap model, HttpServletRequest request, HttpSession session) {
-        return new ModelAndView("redirect:/multi/employment/view?uuid=" + uuid);
+        return new ModelAndView("redirect:/multi/financialInfo/view?uuid=" + uuid);
     }
 
     @GetMapping("/back")
